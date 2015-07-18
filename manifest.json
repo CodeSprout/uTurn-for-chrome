@@ -1,7 +1,7 @@
 {
   "name": "uTurn",
   "version": "1.0.1",
-  "description": "uTurn helps you change direction when you visit time wasting websites",
+  "description": "uTurn helps you change direction when you start wasting time.",
   "background": {
     "scripts": ["js/background.js"],
     "persistent": true
@@ -14,8 +14,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["libraries/bootstrap.min.css"],
-      "js": ["libraries/jquery-2.1.4.min.js", "libraries/bootstrap.min.js" ]
+      "css": ["css/content.css"]
     }
   ],
   "options_page": "settings.html",
