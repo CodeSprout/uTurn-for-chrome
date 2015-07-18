@@ -1,0 +1,8 @@
+.pane { display: none; }
+#pane1 { display: block; }
+
+#container {
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+}

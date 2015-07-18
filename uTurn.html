@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+  - This file is part of uTurn <https://codesproutapps.com/products/uturn/>,
+  - Copyright (C) 2015 Brad Weikel / Code Sprout, LLC
+  -
+  - uTurn is free software: you can redistribute it and/or modify
+  - it under the terms of the GNU General Public License version 3 as
+  - published by the Free Software Foundation.
+  -
+  - uTurn is distributed in the hope that it will be useful,
+  - but WITHOUT ANY WARRANTY; without even the implied warranty of
+  - MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  - GNU General Public License for more details.
+  -
+  - You should have received a copy of the GNU General Public License
+  - along with uTurn.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>uTurn extension options</title>
+
+    <!-- Bootstrap -->
+    <link href="/libraries/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/redirect.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-sm-2"><img src="/resources/images/icon-128.png" /></div>
+          <div class="col-xs-9 col-sm-10">
+            <h1>Are you wasting time?</h1>
+            <h2>Make a uTurn and do something productive.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div id="pane1" class="pane">
+          <div class="col-xs-6 col-md-4 col-md-offset-1">
+            <h3>Get uncluttered.</h3>
+            <a id="refresh1" class="glyphicon glyphicon-refresh" aria-hidden="true" href=""></a>
+          </div>
+          <div class="col-xs-6 col-md-4 col-md-offset-2">
+            <h3>Better yourself.</h3>
+            <a id="refresh2" class="glyphicon glyphicon-refresh" aria-hidden="true" href=""></a>
+          </div>
+          <div class="col-xs-12">
+            <p>Determined to stay at your desk?</p>
+            <button id="next1" type="button" class="btn btn-default">Keep Browsing</button>
+          </div>
+        </div>
+
+        <div id="pane2" class="pane">
+          <div class="col-xs-6">
+            <h3>Do some good.</h3>
+            <a id="refresh3" class="glyphicon glyphicon-refresh" aria-hidden="true" href=""></a>
+          <div class="col-xs-6">
+            <h3>Wise up.</h3>
+            <a id="refresh4" class="glyphicon glyphicon-refresh" aria-hidden="true" href=""></a>
+          <div class="col-xs-12">
+            <p>Still determined to go to ____.com?</p>
+            <button id="next2" type="button" class="btn btn-default">Yes</button>
+
+            <p>Or...</p>
+            <button id="back1" type="button" class="btn btn-default">Back</button>
+          </div>
+        </div>
+
+        <div id="pane3" class="pane">
+          <div class="col-xs-12">
+            <p>One last try: will a minute of waiting change your mind?</p>
+            <div id="countdown">60</div>
+          </div>
+          <div class="col-xs-12">
+            <p>Or...</p>
+            <button id="back2" type="button" class="btn btn-default">Back</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  <script src="/libraries/jquery-2.1.4.min.js"></script>
+  <script src="/js/redirect.js"></script>
+  <script src="/libraries/bootstrap.min.js"></script>
+
+  </body>
+</html>

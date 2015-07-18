@@ -1,0 +1,30 @@
+{
+  "name": "uTurn",
+  "version": "1.0.1",
+  "description": "uTurn helps you change direction when you visit time wasting websites",
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "resources/images/icon-32.png",
+    "default_title": "uTurn",
+    "default_popup": "dropdown.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["libraries/bootstrap.min.css"],
+      "js": ["libraries/jquery-2.1.4.min.js", "libraries/bootstrap.min.js" ]
+    }
+  ],
+  "options_page": "settings.html",
+  "permissions": [ "http://*/*", "https://*/*", "tabs", "webRequest", "webRequestBlocking", "storage" ],
+  "icons" : {
+    "16" : "resources/images/icon-16.png",
+    "32" : "resources/images/icon-32.png",
+    "48" : "resources/images/icon-48.png",
+    "128" : "resources/images/icon-128.png"
+  },
+  "manifest_version": 2
+}
