@@ -1,33 +1,26 @@
+$(function() {
+  loadOptions();
 
-
-document.addEventListener('DOMContentLoaded', loadOptions);
-
-var settings = document.getElementsByClassName( 'saveable' );
-for(var i = 0; i < settings.length; i++)
-{
-  settings.item(i).addEventListener('change',saveOptions);
-}
+  $(".saveable").change(saveOptions);
+});
 
 function loadOptions() {
-  var adsOff = localStorage["adsOff"];
-  var select = document.getElementById("adsOff");
-  
-  select.checked = adsOff;
+  $('#adsOff').prop('checked', localStorage['adsOff'] == "true");
 
   var blacklist = JSON.parse(localStorage["blacklist"] || null);
 
+  $.each(blacklist, function( index, value ) {
+    var wrapper = $('<div />').appendTo('#blacklist');
+
+    wrapper.html(value);
+  });
 }
 
-function saveOptions() {
-  var select = document.getElementById("adsOff");
-  
-  var adsOff = select.checked;
+function saveOptions() {  
+  var adsOff = $("#adsOff").is(':checked');
 
   localStorage["adsOff"] = adsOff;  
 
-//  var blacklist = ["*://www.reddit.com/*", "*://*.cnn.com/*"];
-
-//  localStorage["blacklist"] = JSON.stringify(blacklist);
-
   chrome.extension.getBackgroundPage().loadSettings();
+
 }

@@ -16,7 +16,6 @@ var redirectListener = function(info) {
 };
 
 var loadSettings = function(info) {
-  console.log("Reloading url_list");
 
   var url_list = JSON.parse(localStorage["blacklist"] || null);
 

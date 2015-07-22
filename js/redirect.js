@@ -19,20 +19,20 @@ function init() {
 
   setInterval(function () {
     if(bRunning && pane == 3) {
-      var countdown = document.getElementById('countdown');
+      var countdown = $('#countdown');
 
       timer--;
-      countdown.innerHTML=timer;
+      countdown.html(timer);
     }
   }, 1000);
 
-  document.getElementById('next1').addEventListener('click', function() {
+  $('next1').click( function() {
     pane++;
     $('#pane1').css('display','none');
     $('#pane2').css('display','block');
   });
 
-  document.getElementById('next2').addEventListener('click', function() {
+  $('#next2').click( function() {
     pane++;
     $('#pane2').css('display','none');
     $('#pane3').css('display','block');
