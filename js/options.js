@@ -25,8 +25,9 @@ function saveOptions() {
 
   localStorage["adsOff"] = adsOff;  
 
-  var blacklist = ["*://www.reddit.com/*", "*://*.cnn.com/*"];
+//  var blacklist = ["*://www.reddit.com/*", "*://*.cnn.com/*"];
 
-  localStorage["blacklist"] = JSON.stringify(blacklist);
+//  localStorage["blacklist"] = JSON.stringify(blacklist);
 
+  chrome.extension.getBackgroundPage().loadSettings();
 }

@@ -19,6 +19,9 @@
   ],
   "options_page": "settings.html",
   "permissions": [ "http://*/*", "https://*/*", "tabs", "webRequest", "webRequestBlocking", "storage" ],
+  "web_accessible_resources": [
+    "resources/images/icon-128.png"
+  ],
   "icons" : {
     "16" : "resources/images/icon-16.png",
     "32" : "resources/images/icon-32.png",
