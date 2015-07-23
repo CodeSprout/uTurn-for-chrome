@@ -10,7 +10,7 @@ function quickAddBlacklistDomain( url ) {
 
   localStorage["blacklist"] = JSON.stringify(blacklist);
 
-  //loadSettings();
+  loadSettings();
 }
 
 function initializeDefaultLocalStorageValues() {
@@ -20,7 +20,7 @@ function initializeDefaultLocalStorageValues() {
 
  localStorage.setItem('default_values_initialized', true);
 
- var blacklist = ["*://www.reddit.com/*", "*://*.cnn.com/*"];
+ var blacklist = ["www.reddit.com", "*.cnn.com"];
  localStorage["blacklist"] = JSON.stringify(blacklist);
 }
 
@@ -36,6 +36,12 @@ var loadSettings = function(info) {
       chrome.webRequest.onBeforeRequest.removeListener(redirectListener);
 
   if(url_list) {
+    for (var i = 0; i < url_list.length; i++) {
+      url_list[i] = "*://"+url_list[i]+"/*";
+    }
+
+    console.log(url_list);
+
     chrome.webRequest.onBeforeRequest.addListener(
       redirectListener,
       {

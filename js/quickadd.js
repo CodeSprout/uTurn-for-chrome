@@ -20,7 +20,7 @@ $(function() {
       default:
         currentSubDomain = domain;
         host_parts.shift();
-        currentDomain = host_parts.join(".");
+        currentDomain = "*."+host_parts.join(".");
         break;
     } 
 
