@@ -1,34 +1,43 @@
-initializeDefaultLocalStorageValues();
+function saveToLocalStorage ( blacklist ) {
+  blacklist = $.unique(blacklist);
 
-function quickAddBlacklistDomain( url ) {
-  console.log("blacklisting " );
-  console.log(arguments);
+  localStorage["blacklist"] = JSON.stringify(blacklist);
+  loadSettings();
+}
 
+function dropBlacklistDomainByIndex( index ) {
+  var blacklist = JSON.parse(localStorage["blacklist"]);
+
+  blacklist.splice(index,1);
+
+  saveToLocalStorage(blacklist);
+}
+
+function addBlacklistDomain( url ) {
   var blacklist = JSON.parse(localStorage["blacklist"]);
 
   blacklist.push(url);
 
-  localStorage["blacklist"] = JSON.stringify(blacklist);
-
-  loadSettings();
+  saveToLocalStorage(blacklist);
 }
 
-function initializeDefaultLocalStorageValues() {
- if (localStorage.getItem('default_values_initialized')) {
-   return;
- }
+function initDefaultLocalStorageValues() {
+  if (localStorage.getItem('default_values_initialized')) {
+    return;
+  }
 
- localStorage.setItem('default_values_initialized', true);
+  localStorage.setItem('default_values_initialized', true);
 
- var blacklist = ["www.reddit.com", "*.cnn.com"];
- localStorage["blacklist"] = JSON.stringify(blacklist);
+  var blacklist = ["*.facebook.com"];
+
+  saveToLocalStorage(blacklist);
 }
 
-var redirectListener = function(info) {
+var redirectListener = function() {
   return {redirectUrl: chrome.extension.getURL("/uTurn.html")} ;
 };
 
-var loadSettings = function(info) {
+function loadSettings() {
 
   var url_list = JSON.parse(localStorage["blacklist"] || null);
 
@@ -54,4 +63,6 @@ var loadSettings = function(info) {
   }
 }
 
+initDefaultLocalStorageValues();
 loadSettings();
+

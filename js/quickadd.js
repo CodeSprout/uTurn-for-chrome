@@ -15,18 +15,32 @@ $(function() {
         //not a valid host.tld domain
         break;
       case 2:
-        currentDomain = domain;
+        currentDomain = "*."+domain;
         break;
       default:
-        currentSubDomain = domain;
+        currentSubDomain = "*."+domain;
         host_parts.shift();
         currentDomain = "*."+host_parts.join(".");
         break;
-    } 
+    }
 
-    $('#quickAdd').click(function() {
-      chrome.extension.getBackgroundPage().quickAddBlacklistDomain(currentDomain);
-    });
+    if(currentDomain) {
+      console.log("prepping domain");
+      $('#domain').html("Blacklist "+currentDomain);
+      $('#domain').click(function() {
+        console.log("adding dom");
+        chrome.extension.getBackgroundPage().addBlacklistDomain(currentDomain);
+      });
+    }
+
+    if(currentSubDomain) {
+      console.log("prepping subdomain");
+      $('#subdomain').html("Blacklist "+currentSubDomain);
+      $('#subdomain').click(function() {
+        console.log("adding sub");
+        chrome.extension.getBackgroundPage().addBlacklistDomain(currentSubDomain);
+      });
+    }
 
   });
 

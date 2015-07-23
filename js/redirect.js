@@ -26,7 +26,7 @@ function init() {
     }
   }, 1000);
 
-  $('next1').click( function() {
+  $('#next1').click( function() {
     pane++;
     $('#pane1').css('display','none');
     $('#pane2').css('display','block');

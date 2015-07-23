@@ -4,7 +4,7 @@
   "author": "Code Sprout, LLC",
   "description": "uTurn helps you change direction when you start wasting time.",
   "background": {
-    "scripts": ["js/background.js"],
+    "scripts": ["libraries/jquery-2.1.4.min.js", "js/background.js"],
     "persistent": true
   },
   "browser_action": {

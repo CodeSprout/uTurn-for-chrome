@@ -10,9 +10,13 @@ function loadOptions() {
   var blacklist = JSON.parse(localStorage["blacklist"] || null);
 
   $.each(blacklist, function( index, value ) {
-    var wrapper = $('<div />').appendTo('#blacklist');
+    var wrapper = $("<div class='blitem'/>").appendTo('#blacklist');
 
     wrapper.html(value);
+
+    wrapper.click( function() {
+      chrome.extension.getBackgroundPage().dropBlacklistDomainByIndex(index);
+    });
   });
 }
 
