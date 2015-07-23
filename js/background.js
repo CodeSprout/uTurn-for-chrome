@@ -1,5 +1,18 @@
 initializeDefaultLocalStorageValues();
 
+function quickAddBlacklistDomain( url ) {
+  console.log("blacklisting " );
+  console.log(arguments);
+
+  var blacklist = JSON.parse(localStorage["blacklist"]);
+
+  blacklist.push(url);
+
+  localStorage["blacklist"] = JSON.stringify(blacklist);
+
+  //loadSettings();
+}
+
 function initializeDefaultLocalStorageValues() {
  if (localStorage.getItem('default_values_initialized')) {
    return;

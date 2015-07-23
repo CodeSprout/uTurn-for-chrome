@@ -1,6 +1,7 @@
 {
   "name": "uTurn",
   "version": "1.0.1",
+  "author": "Code Sprout, LLC",
   "description": "uTurn helps you change direction when you start wasting time.",
   "background": {
     "scripts": ["js/background.js"],
@@ -18,7 +19,7 @@
     }
   ],
   "options_page": "settings.html",
-  "permissions": [ "http://*/*", "https://*/*", "tabs", "webRequest", "webRequestBlocking", "storage" ],
+  "permissions": [ "http://*/*", "https://*/*", "activeTab", "webRequest", "webRequestBlocking", "storage" ],
   "web_accessible_resources": [
     "resources/images/icon-128.png"
   ],
