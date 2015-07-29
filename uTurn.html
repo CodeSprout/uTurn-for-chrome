@@ -54,46 +54,61 @@
       <div class="row">
 
         <div id="pane1" class="pane">
-          <div class="col-xs-6 col-md-4 col-md-offset-1">
+          <div class="col-xs-6 col-md-3 col-md-offset-2">
             <h3>Get uncluttered.</h3>
-            <div id="icon1"></div>
+            <div id="icon1" class="icon_wrapper"></div>
           </div>
-          <div class="col-xs-6 col-md-4 col-md-offset-2">
+          <div class="col-xs-6 col-md-3 col-md-offset-2">
             <h3>Better yourself.</h3>
-            <div id="icon2"></div>
+            <div id="icon2" class="icon_wrapper"></div>
           </div>
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4 col-md-offset-4 pane_footer">
             <p>Want to stay in your browser?</p>
             <button id="next1" type="button" class="btn btn-default">Get more ideas.</button>
           </div>
         </div>
 
         <div id="pane2" class="pane">
-          <div class="col-xs-6 col-md-4 col-md-offset-1">
+          <div class="col-xs-6 col-md-3 col-md-offset-2">
             <h3>Do some good.</h3>
-            <div id="icon3"></div>
+            <div id="icon3"  class="icon_wrapper"></div>
           </div>
-          <div class="col-xs-6 col-md-4 col-md-offset-1">
+          <div class="col-xs-6 col-md-3 col-md-offset-2">
             <h3>Browse smarter.</h3>
-            <div id="icon4"></div>
+            <div id="icon4"  class="icon_wrapper"></div>
           </div>
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4 col-md-offset-4 pane_footer">
             <p>Still determined to go to ____.com?</p>
             <button id="next2" type="button" class="btn btn-default">Yes</button>
           </div>
         </div>
 
         <div id="pane3" class="pane">
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4 col-md-offset-4 pane_footer">
             <p>One last try: will a minute of waiting change your mind?</p>
-            <div id="countdown">60</div>
-            <button id="next3" type="button" class="btn btn-default">Return to browsing</button>
+            <div id="countdown">1:00</div>
+
+            <div id="next3" style="display: none;">
+              <button id="next3" type="button" class="btn btn-default">Return to browsing</button>
+              <p>If you click the above button, uTurn will be disabled for 1 minute.</p>
+            </div>
           </div>
         </div>
 
 
       </div>
     </div>
+
+
+  <div class="jumbotron ufooter">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>uTurn was created by <a href="http://codesproutapps.com">Code Sprout</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/libraries/jquery-2.1.4.min.js"></script>
   <script src="/js/redirect.js"></script>

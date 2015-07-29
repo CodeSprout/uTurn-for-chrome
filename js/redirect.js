@@ -43,7 +43,6 @@ function shuffle(array) {
 
 var bRunning = true;
 var timer = 60;
-bRunning = true;
 var pane = 1;
 
 window.addEventListener('focus', function() {
@@ -68,16 +67,18 @@ function init() {
 
   for (i = 0; i < icons.length; i++) { 
     $(icons[i]).html("<img src=" + routes[i][0].image + "/>");
+    $(icons[i]).append("<div class='icon_description'>"+ routes[i][0].description  +"</div>");
   }
 
   setInterval(function () {
-    if(bRunning && pane == 3) {
+    if(bRunning && pane == 3 && timer > 0) {
       var countdown = $('#countdown');
 
       timer--;
-      countdown.html(timer);
+      countdown.html("0:" + ('0'+timer).slice(-2));
 
       if(timer <= 0 ) {
+        countdown.html("&nbsp;OK&nbsp;");
         $('#next3').css('display', 'block');
       }
     }

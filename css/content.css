@@ -1,1 +1,6 @@
 /* Empty for now -- needs to exist to create content_scripts array in manifest*/
+
+.ufooter {
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
