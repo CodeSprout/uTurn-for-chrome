@@ -1,3 +1,5 @@
+var storedURL = "";
+
 var Route = function (image, description, url) {
   this.image = image;
   this.description = description;
@@ -54,6 +56,9 @@ window.addEventListener('blur', function() {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+
+  storedURL = chrome.extension.getBackgroundPage().lastBlockedURL;
+
   shuffle(routes[0]);
   shuffle(routes[1]);
   shuffle(routes[2]);
@@ -71,6 +76,10 @@ function init() {
 
       timer--;
       countdown.html(timer);
+
+      if(timer <= 0 ) {
+        $('#next3').css('display', 'block');
+      }
     }
   }, 1000);
 
@@ -84,5 +93,11 @@ function init() {
     pane++;
     $('#pane2').css('display','none');
     $('#pane3').css('display','block');
+  });
+
+  $('#next3').click( function() {
+    chrome.extension.getBackgroundPage().startGracePeriod();
+    
+    window.location.href = storedURL;
   });
 }

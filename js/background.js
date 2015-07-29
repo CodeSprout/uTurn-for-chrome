@@ -1,3 +1,7 @@
+var lastBlockedUrl = "";
+var gracePeriodStartTime = 0;
+var bInGracePeriod = false;
+
 function saveToLocalStorage ( blacklist ) {
   blacklist = $.unique(blacklist);
 
@@ -33,8 +37,27 @@ function initDefaultLocalStorageValues() {
   saveToLocalStorage(blacklist);
 }
 
-var redirectListener = function() {
-  return {redirectUrl: chrome.extension.getURL("/uTurn.html")} ;
+var redirectListener = function(details) {
+  if (bInGracePeriod) {
+    console.log("Grace Period Detected");
+    var elapsed;
+
+    elapsed = new Date().getTime() - gracePeriodStartTime;
+    console.log(elapsed);
+    console.log(gracePeriodStartTime);
+ 
+    if (elapsed > 1000*60*1) {
+      bInGracePeriod = false;
+
+      console.log("Grace Period Cancelled");
+
+    }
+  } 
+
+  if (!bInGracePeriod) {
+    lastBlockedURL = details['url'];
+    return {redirectUrl: chrome.extension.getURL("/uTurn.html")} ;
+  }
 };
 
 function loadSettings() {
@@ -66,3 +89,7 @@ function loadSettings() {
 initDefaultLocalStorageValues();
 loadSettings();
 
+function startGracePeriod() {
+  gracePeriodStartTime = new Date().getTime();
+  bInGracePeriod = true;
+}
